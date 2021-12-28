@@ -1,4 +1,4 @@
-name: flutter_dragdropinterval
+name: flutter_dropappointment
 description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  syncfusion_flutter_calendar: 19.3.59
+  syncfusion_flutter_calendar: 19.4.38
 
 
   # The following adds the Cupertino Icons font to your application.
