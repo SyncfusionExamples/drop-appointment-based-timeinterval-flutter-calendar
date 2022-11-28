@@ -5,45 +5,9 @@ This example demonstrates How to drop the appointment based on the time interval
 Using the [onDragEnd](https://help.syncfusion.com/flutter/calendar/drag-drop#ondragend) callback of the Flutter Calendar, you can drop the appointments into specific timeslots in the Flutter Event Calendar.
 
 ## Defining appointment start time based on the drop information
+There is no direct support for dropping the appointment to a specified time interval in the calendar. To find the difference between the appointment's start and end times using the dragEnd callback of the Flutter Calendar. Then, based on the appointment drag end information, create a new appointment with specified timing for dropping.
 
-Find the difference between the appointment's start and end times using the dragEnd callback of the Flutter Calendar. Then, based on the appointment drag end information, set the start time for the appointment.
 
-```
-void _dragEnd(AppointmentDragEndDetails appointmentDragEndDetails) {
-  Appointment detail = appointmentDragEndDetails.appointment as Appointment;
-  Duration = detail.endTime.difference(detail.startTime);
-
-  DateTime start = DateTime(
-      appointmentDragEndDetails.droppingTime!.year,
-      appointmentDragEndDetails.droppingTime!.month,
-      appointmentDragEndDetails.droppingTime!.day,
-      appointmentDragEndDetails.droppingTime!.hour,
-      0,
-      0);
-
-  final List<Appointment> appointment = <Appointment>[];
-  _events.appointments!.remove(appointmentDragEndDetails.appointment);
-
-  /// No direct support for drop the appointment to specified time intervals. So, remove the dragged appointment add
-  /// new appointment with specified timing for dropping.
-  _events.notifyListeners(CalendarDataSourceAction.remove,
-      <dynamic>[appointmentDragEndDetails.appointment]);
-
-  Appointment app = Appointment(
-    subject: detail.subject,
-    color: detail.color,
-    startTime: start,
-    endTime: start.add(duration),
-  );
-
-  appointment.add(app);
-
-  _events.appointments!.add(appointment[0]);
-
-  _events.notifyListeners(CalendarDataSourceAction.add, appointment);
-}
-
-```
 
 ## Requirements to run the demo
 * [VS Code](https://code.visualstudio.com/download)
