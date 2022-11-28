@@ -7,7 +7,7 @@ Using the [onDragEnd](https://help.syncfusion.com/flutter/calendar/drag-drop#ond
 ## Defining appointment start time based on the drop information
 There is no direct support for dropping the appointment to a specified time interval in the calendar. To find the difference between the appointment's start and end times using the dragEnd callback of the Flutter Calendar. Then, based on the appointment drag end information, create a new appointment with specified timing for dropping.
 
-
+![DropAppointment](https://user-images.githubusercontent.com/46158936/204212908-6a97b78b-a31c-4101-9c2c-cb4d0c9076ee.gif)
 
 ## Requirements to run the demo
 * [VS Code](https://code.visualstudio.com/download)
